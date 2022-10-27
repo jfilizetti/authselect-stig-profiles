@@ -25,7 +25,7 @@ account     sufficient                                   pam_usertype.so issyste
 account     [default=bad success=ok user_unknown=ignore] pam_sss.so
 account     required                                     pam_permit.so
 
-password    requisite                                    pam_pwquality.so local_users_only
+password    required                                     pam_pwquality.so local_users_only
 password    required                                     pam_pwhistory.so use_authtok remember=5 retry=3
 password    sufficient                                   pam_unix.so sha512 shadow use_authtok
 password    sufficient                                   pam_sss.so use_authtok
