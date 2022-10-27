@@ -36,6 +36,9 @@ with-mkhomedir::
     Enable automatic creation of home directories for users on their
     first login.
 
+with-ecryptfs::
+    Enable automatic per-user ecryptfs.
+
 with-smartcard::
     Enable authentication with smartcards through SSSD. Please note that
     smartcard support must be also explicitly enabled within
@@ -50,6 +53,9 @@ with-smartcard-required::
 
 with-fingerprint::
     Enable authentication with fingerprint reader through *pam_fprintd*.
+
+with-pam-gnome-keyring::
+    Enable pam-gnome-keyring support.
 
 with-pam-u2f::
     Enable authentication via u2f dongle through *pam_u2f*.
@@ -69,6 +75,11 @@ with-sudo::
 with-pamaccess::
     Check access.conf during account authorization.
 
+with-files-domain::
+    If set, SSSD will be contacted before "files" when resolving users and
+    groups. The order in nsswitch.conf will be set to "sss files" instead of
+    "files sss" for passwd and group maps.
+
 with-files-access-provider::
     If set, account management for local users is handled also by pam_sss. This
     is needed if there is an explicitly configured domain with id_provider=files
@@ -78,6 +89,13 @@ with-files-access-provider::
     if SSSD is stopped then local users will not be able to log in. Only
     system accounts (as defined by pam_usertype, including root) will be
     able to log in.
+
+with-gssapi::
+    If set, pam_sss_gss module is enabled to perform user authentication over
+    GSSAPI.
+
+with-subid::
+    Enable SSSD as a source of subid database in /etc/nsswitch.conf.
 
 DISABLE SPECIFIC NSSWITCH DATABASES
 -----------------------------------
@@ -116,4 +134,4 @@ EXAMPLES
 
 SEE ALSO
 --------
-* man sssd.conf(8)
+* man sssd.conf(5)
