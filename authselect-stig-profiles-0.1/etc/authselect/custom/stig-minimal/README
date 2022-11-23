@@ -15,6 +15,10 @@ to keep SSSD running and use 'sssd' profile to avoid functional limitations.
 AVAILABLE OPTIONAL FEATURES
 ---------------------------
 
+with-faillock::
+    Enable account locking in case of too many consecutive
+    authentication failures.
+
 with-mkhomedir::
     Enable automatic creation of home directories for users on their
     first login.
@@ -22,11 +26,17 @@ with-mkhomedir::
 with-ecryptfs::
     Enable automatic per-user ecryptfs.
 
+with-silent-lastlog::
+    Do not produce pam_lastlog message during login.
+
 with-pamaccess::
     Check access.conf during account authorization.
 
 with-altfiles::
     Use nss_altfiles for passwd and group nsswitch databases.
+
+without-nullok::
+    Do not add nullok parameter to pam_unix.
 
 DISABLE SPECIFIC NSSWITCH DATABASES
 -----------------------------------
